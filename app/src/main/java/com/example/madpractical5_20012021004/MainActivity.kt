@@ -3,6 +3,7 @@ package com.example.madpractical5_20012021004
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,12 +13,12 @@ class MainActivity : AppCompatActivity() {
 
     //By using explicit intent we used this start and stop service by calling MyService Class
 
-    fun play(){
+    fun play(view:View){
         Intent(applicationContext,MyService::class.java)
             .putExtra(MyService.DATA_KEY,MyService.DATA_VALUE)
             .apply { startService(this) }
     }
-    fun stop(){
+    fun stop(view: View){
         Intent(applicationContext,MyService::class.java)
             .apply { stopService(this) }
     }
